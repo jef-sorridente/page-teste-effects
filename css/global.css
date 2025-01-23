@@ -209,6 +209,9 @@ body {
   text-align: center;
   position: relative;
 
+  top: 0;
+  left: 0;
+
   & .subtitle {
     margin-bottom: 8px;
   }
@@ -219,16 +222,33 @@ body {
     margin-bottom: 100px;
   }
 
+  & .target-section {
+    height: calc(100vh - 107px);
+    margin-bottom: 1000px;
+  }
+
   & .container-cards {
     display: flex;
     justify-content: space-around;
-    
-    padding: 32px 0;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    transition: var(--transition-ease);
+    width: 100vw;
+    height: 100%;
+    /* padding-bottom: 300px; */
+
+    &.fixed {
+      height: 100vh;
+      position: fixed;
+      top: 107px;
+      left: 0;
+    }
 
     & .card {
       color: var(--primary);
       min-height: 550px;
-      height: 100%;
+      height: 100vh;
       position: relative;
       z-index: 1;
       border-radius: 16px;
@@ -237,14 +257,12 @@ body {
       flex-direction: column;
       justify-content: center;
       align-items: center;
-
-      padding: 16px;
-
       cursor: pointer;
+      padding: 16px;
 
       & .card-title {
         position: relative;
-        top: 0;
+        top: 20px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -271,7 +289,7 @@ body {
       }
 
       &:hover .card-title {
-        top: -20px;
+        top: 0;
       }
 
       & .text-hidden {
@@ -288,26 +306,22 @@ body {
       }
 
       /* After Before */
-
-      &::before {
-        position: absolute;
+      &::after, &::before {
         content: "";
+        position: absolute;
         bottom: 0;
         left: 0;
         width: 100%;
-        height: 100%;
+        height: 100vh;
+      }
+
+      &::before {
         background-color: var(--secondary);
         z-index: -2;
       }
 
       &::after {
         background-color: var(--tertiary);
-        content: "";
-        bottom: 0;
-        left: 0;
-        position: absolute;
-        display: block;
-        width: 100%;
         height: 0%;
         transition: var(--transition-ease);
         z-index: -1;
@@ -336,27 +350,17 @@ body {
     }
 
     &.right {
-        top: calc(50% + 100px);
+      top: calc(50% + 100px);
 
-        & .scrolling {
-            animation: scrolling-x 60s linear infinite reverse;
-        }
+      & .scrolling {
+        animation: scrolling-x 60s linear infinite reverse;
+      }
     }
 
     & .subtitle {
-        font-weight: 500;
-        text-transform: uppercase;
-        white-space: nowrap;
+      font-weight: 500;
+      text-transform: uppercase;
+      white-space: nowrap;
     }
   }
-}
-
-@keyframes scrolling-x {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(-100%);
-    }
 }
