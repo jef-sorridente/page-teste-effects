@@ -227,31 +227,24 @@ body {
     margin-bottom: 1000px;
   }
 
-  & .container-cards {
+  & .items-cards {
     display: flex;
-    justify-content: space-around;
-    position: relative;
-    top: 0px;
-    left: 0px;
-    transition: var(--transition-ease);
-    width: 100vw;
-    height: 100%;
-    /* padding-bottom: 300px; */
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    list-style: none;
+    gap: 32px;
+    margin-left: 50vw;
 
-    &.fixed {
+    & .item {
+      margin-top: 107px;
+      min-width: 400px;
       height: 100vh;
-      position: fixed;
-      top: 107px;
-      left: 0;
-    }
+      background: var(--secondary);
+      text-align: center;
 
-    & .card {
       color: var(--primary);
-      min-height: 550px;
-      height: 100vh;
       position: relative;
       z-index: 1;
-      border-radius: 16px;
 
       display: flex;
       flex-direction: column;
@@ -306,7 +299,8 @@ body {
       }
 
       /* After Before */
-      &::after, &::before {
+      &::after,
+      &::before {
         content: "";
         position: absolute;
         bottom: 0;
@@ -336,17 +330,21 @@ body {
 
   & .scrolling-container {
     display: grid;
+    justify-content: space-around;
     grid-template-columns: 100% 100%;
     position: absolute;
     top: 50%;
     z-index: -1;
 
     & .scrolling {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      display: flex;
       gap: 32px;
-      overflow: hidden;
+      /* overflow: hidden; */
       animation: scrolling-x 60s linear infinite;
+
+      & .subtitle{
+        font-size: 80px;
+      }
     }
 
     &.right {
@@ -363,4 +361,18 @@ body {
       white-space: nowrap;
     }
   }
+}
+
+@keyframes scrolling-x {
+  0% {
+      transform: translateX(0);
+  }
+
+  100% {
+      transform: translateX(-100%);
+  }
+}
+
+.space {
+  height: 5000px;
 }
