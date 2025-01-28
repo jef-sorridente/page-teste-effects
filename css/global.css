@@ -8,6 +8,7 @@
   font-family: "CabinetGrotesk";
   text-decoration: none;
   list-style: none;
+  scroll-behavior: smooth;
 }
 
 :root {
@@ -217,6 +218,7 @@ body {
   }
 
   & .text {
+    color: #fff;
     max-width: 500px;
     margin: auto;
     margin-bottom: 100px;
@@ -394,11 +396,24 @@ body {
   left: 0;
   top: 0;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 
   & .title-box {
     opacity: 1;
     color: #000;
+    position: relative;
+    top: 0;
+  }
+
+  & .text-box {
+    margin-top: 2rem;
+    max-width: 450px;
+    text-align: center;
+    color: #000;
+    font-weight: bold;
+    position: relative;
+    top: 0;
   }
 }

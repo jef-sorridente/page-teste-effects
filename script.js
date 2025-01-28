@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
         pinnedContainer: pageWrapper,
         end: () => "+=" + distance(),
         pin: pageWrapper,
-        scrub: true,
+        scrub: 2,
         invalidateOnRefresh: true, // will recalculate any function-based tween values on resize/refresh (making it responsive)
       },
     });
@@ -30,9 +30,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: "#container-box",
-      start: "top top",
-      // end: "+=3000px",
-      scrub: 2,
+      start: "top",
+      end: "+=2000px",
+      scrub: 5,
       pin: true,
       markers: true,
     },
@@ -40,8 +40,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   tl.from("#box-1", { x: "100vw", stagger: 0.1 });
   tl.from("#box-1", { height: "5px", top: "50%" });
-  tl.from(".title-box", { opacity: 0});
-  
+  tl.from(".title-box", { opacity: 0, top: "60px" });
+  tl.from(".text-box", { opacity: 0, top: "60px" });
+
   // .from("#container-box", {})
   // .from("#box-1", { x: "100vw", stagger: 0.1, duration: 0.5 })
   // .from("#box-1", { height: "5px", top: "50%", duration: 0.5, delay: 0.5 });
