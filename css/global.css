@@ -382,7 +382,7 @@ body {
 #container-box {
   width: 100vw;
   height: 100vh;
-  background-color: #fff;
+  /* background-color: #fff; */
   position: relative;
 }
 
@@ -393,5 +393,12 @@ body {
   position: absolute;
   left: 0;
   top: 0;
-}
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
+  & .title-box {
+    opacity: 1;
+    color: #000;
+  }
+}

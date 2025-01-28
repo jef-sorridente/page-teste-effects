@@ -27,11 +27,24 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  gsap
-    .timeline()
-    .from("#container-box", {})
-    .from("#box-1", { x: "100vw", stagger: 0.1, duration: .5 })
-    .from("#box-1", { height: "5px", top: '50%', duration: .5, delay: .5});
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#container-box",
+      start: "top top",
+      // end: "+=3000px",
+      scrub: 2,
+      pin: true,
+      markers: true,
+    },
+  });
+
+  tl.from("#box-1", { x: "100vw", stagger: 0.1 });
+  tl.from("#box-1", { height: "5px", top: "50%" });
+  tl.from(".title-box", { opacity: 0});
+  
+  // .from("#container-box", {})
+  // .from("#box-1", { x: "100vw", stagger: 0.1, duration: 0.5 })
+  // .from("#box-1", { height: "5px", top: "50%", duration: 0.5, delay: 0.5 });
 
   // gsap.to(".box-opening", {
   //   scrollTrigger: {
