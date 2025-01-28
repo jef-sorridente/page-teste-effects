@@ -342,7 +342,7 @@ body {
       /* overflow: hidden; */
       animation: scrolling-x 60s linear infinite;
 
-      & .subtitle{
+      & .subtitle {
         font-size: 80px;
       }
     }
@@ -365,14 +365,33 @@ body {
 
 @keyframes scrolling-x {
   0% {
-      transform: translateX(0);
+    transform: translateX(0);
   }
 
   100% {
-      transform: translateX(-100%);
+    transform: translateX(-100%);
   }
 }
 
 .space {
   height: 5000px;
 }
+
+/* opening box */
+
+#container-box {
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
+  position: relative;
+}
+
+#box-1 {
+  background-color: #b3d822;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+

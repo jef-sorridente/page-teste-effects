@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", (event) => {
+document.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(ScrollTrigger);
 
   let items = gsap.utils.toArray(".items-cards"),
@@ -26,4 +26,41 @@ document.addEventListener("DOMContentLoaded", (event) => {
       },
     });
   });
+
+  gsap
+    .timeline()
+    .from("#container-box", {})
+    .from("#box-1", { x: "100vw", stagger: 0.1, duration: .5 })
+    .from("#box-1", { height: "5px", top: '50%', duration: .5, delay: .5});
+
+  // gsap.to(".box-opening", {
+  //   scrollTrigger: {
+  //     trigger: "#container-box",
+  //     start: "top",
+  //     end: "+=3000px",
+  //     scrub: 2,
+  //     pin: true,
+  //     markers: true,
+  //   },
+  //   xPercent: 100,
+  //   // ease: "back",
+  //   // height: "100vh",
+  //   // duration: 3,
+  //   // ease: "power2.out",
+  // });
+
+  // gsap.to(".box-2", {
+  //   scrollTrigger: {
+  //     trigger: ".box2",
+  //     start: "top center",
+  //     end: "bottom",
+  //     scrub: 3,
+  //     pin: true,
+  //     markers: true,
+  //   },
+  //   xPercent: -50,
+  //   height: "2000px",
+  //   duration: 3,
+  //   ease: "power2.out",
+  // });
 });
