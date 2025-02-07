@@ -36,6 +36,7 @@ body {
   background-color: var(--secondary);
   color: var(--secondary);
   overflow-x: hidden;
+  /* cursor: url('cursor-1x1.png'), pointer; */
 }
 
 .title {
